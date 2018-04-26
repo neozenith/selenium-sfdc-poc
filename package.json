@@ -1,0 +1,24 @@
+{
+  "name": "selenium-poc",
+  "version": "1.0.0",
+  "description": "POC Selenium to drive Salesforce UI",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter list",
+    "test-parallel": "./node_modules/.bin/mocha-parallel-tests --reporter list"
+  },
+  "author": "Josh Peak",
+  "license": "MIT",
+  "dependencies": {
+    "chromedriver": "^2.35.0",
+    "dotenv": "^5.0.0",
+    "geckodriver": "^1.10.0",
+    "mocha": "^5.0.1",
+    "selenium-webdriver": "4.0.0-alpha.1"
+  },
+  "devDependencies": {
+    "eslint": "4.17.0",
+    "mocha-parallel-tests": "^1.2.10",
+    "prettier": "1.10.2"
+  }
+}
