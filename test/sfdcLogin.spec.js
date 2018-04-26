@@ -16,6 +16,21 @@ const screen = {
 	height: 1024
 };
 
+function timestampedFilename(prefix = '', suffix = '', extension = '.png') {
+	const timestamp = new Date()
+		.toISOString()
+		.replace(/T/, '_')
+		.replace(/\.[0-9]+/, '')
+		.replace(/[:-]/g, '.');
+	return prefix + timestamp + suffix + extension;
+}
+
+async function dumpScreenshot(driver, context) {
+	const data = await driver.takeScreenshot();
+	const filename = timestampedFilename('screenshots/', context);
+	await promisify(writeFile)(filename, data, 'base64');
+}
+
 console.log(browsers, headless);
 // TODO: Capture screenshot on error
 function browserTest(
